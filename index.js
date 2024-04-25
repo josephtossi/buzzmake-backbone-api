@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const buzzController = require('./controllers/buzzController.js');
@@ -13,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/buzzes', buzzController);
 
 // Database connection and server start
-mongoose.connect('mongodb+srv://root:Admin12345!@buzzmakeapi.qg2unda.mongodb.net/Node-API?retryWrites=true&w=majority&appName=buzzmakeAPI')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('Connected to Mongo Database');
         app.listen(port, () => console.log(`Node API is running on port ${port}`));
