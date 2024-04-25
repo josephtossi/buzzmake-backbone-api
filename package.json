@@ -1,0 +1,17 @@
+{
+  "name": "buzzmake",
+  "version": "1.0.0",
+  "description": "BuzzMake is a dynamic social platform tailored for teenagers and adults, offering a unique fusion of entertainment and interaction. Users can craft daring challenges while others spectate and engage by placing bets. Upon successful completion of a dare, participants reap rewards in the form of coins, adding a thrilling dimension to social connectivity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joseph F. Tossy",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "joi": "^17.13.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
