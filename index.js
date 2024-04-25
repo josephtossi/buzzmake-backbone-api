@@ -1,7 +1,6 @@
 const Joi = require('joi')
 const express = require('express');
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -22,8 +21,9 @@ const buzzes = [
         'url': 'www.fav1.com'
     },
 ];
+
 app.get('/', (req, res) => {
-    res.status(200).send({ 'message': 'welcome' });
+    res.status(200).send("Hello node");
 });
 
 app.get('/api/buzzes', (req, res) => {
@@ -99,4 +99,4 @@ function validateBuzz(body) {
     return schema.validate(body);
 }
 
-app.listen(port, () => console.log(`listening at port ${port}`))
+app.listen(port, () => console.log(`Node API is running on port ${port}`))
