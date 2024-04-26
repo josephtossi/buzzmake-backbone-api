@@ -5,8 +5,11 @@ const morgan = require('morgan');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 
+// route constants
 const buzzRoute = require('./routes/buzzRoute.js');
 const authRoute = require('./routes/authRoute.js');
+// helpers constants
+const mongooseHelper = require('./helpers/mongoosedb_helper.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 // middleware
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use('/api/buzzes', buzzRoute);
@@ -33,9 +36,10 @@ app.use(async (error, req, res, next) => {
 });
 
 // Database connection and server start
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.DB_NAME })
     .then(() => {
         console.log('Connected to Mongo Database');
+        mongooseHelper.closeDatabaseConnectionOnAbort();
         app.listen(PORT, () => console.log(`Node API is running on port ${PORT}`));
     })
     .catch((error) => {
