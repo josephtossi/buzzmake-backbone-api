@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 // model schema using mongoose
 const buzzSchema = mongoose.Schema(
     {
@@ -27,7 +26,6 @@ const buzzSchema = mongoose.Schema(
     },
     { timestamps: true }
 )
-
 
 const Buzz = mongoose.model('Buzz', buzzSchema);
 
