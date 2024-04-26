@@ -1,9 +1,11 @@
 const express = require('express');
 const buzzModel = require('../models/buzzModel.js');
 const router = express.Router();
+const { verifyAccessToken } = require('../helpers/jwt_helper.js')
 
-router.get('/', async (req, res, next) => {
+router.get('/', verifyAccessToken, async (req, res, next) => {
     try {
+        console.log(req.headers['authorization'])
         const buzzes = await buzzModel.find({});
         res.status(200).json(buzzes);
     } catch (error) {
@@ -11,7 +13,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', verifyAccessToken, async (req, res, next) => {
     try {
         const { id } = req.params;
         const buzz = await buzzModel.findById(id)
@@ -21,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', verifyAccessToken, async (req, res, next) => {
     try {
         const response = await buzzModel.create(req.body);
         res.status(200).send(response);
@@ -30,7 +32,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', verifyAccessToken, async (req, res, next) => {
     try {
         const { id } = req.params;
         const buzz = await buzzModel.findByIdAndUpdate(id, req.body);
@@ -45,7 +47,7 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', verifyAccessToken, async (req, res, next) => {
     try {
         const { id } = req.params;
         const buzz = await buzzModel.findByIdAndDelete(id);

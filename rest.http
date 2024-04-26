@@ -1,9 +1,56 @@
 
-POST http://localhost:3000/api/auth/register
-Content-Type: application/json
+# POST http://localhost:3000/api/auth/register
+# Content-Type: application/json
  
-{
-    "email": "jewsssqei1@gmail.com",
-    "password": "1234dsadad5",
-    "name": "test"
-}
+# {
+#     "email": "newuser@gmail.com",
+#     "password": "test123455",
+#     "name": "newuser"
+# }
+
+
+# POST http://localhost:3000/api/auth/login
+# Content-Type: application/json
+ 
+# {
+#     "email": "newuser@gmail.com",
+#     "password": "test123455"
+# }
+
+# POST http://localhost:3000/api/auth/refresh-token
+# Content-Type: application/json
+
+# {
+#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjAyNjIsImV4cCI6MTc0NTcxNzg2MiwiYXVkIjoiNjYyYzAxYmQzMTY1MDE5NzkzYzZjMTgwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.Z3y5LsGgpFIZQd25YV9P0_Bp1kTMzf6WEN35SIJK3Es"
+# }
+
+# GET http://localhost:3000/api/buzzes
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+
+# GET http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+
+# POST http://localhost:3000/api/buzzes
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+
+# {
+#     "name": "New buzz",
+#     "poster": {"email": "maria@gmail.com", "name": "maria", "password": "maria123455"},
+#     "url": "www.google.com",
+#     "private": false
+# }
+
+# PUT http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+
+# {
+#     "name": "the new node.js is here"
+# }
+
+# DELETE http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
