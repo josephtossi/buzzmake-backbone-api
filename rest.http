@@ -3,17 +3,17 @@
 # Content-Type: application/json
  
 # {
-#     "email": "newuser@gmail.com",
+#     "email": "josephT@gmail.com",
 #     "password": "test123455",
-#     "name": "newuser"
+#     "name": "josephT"
 # }
 
 
 # POST http://localhost:3000/api/auth/login
 # Content-Type: application/json
- 
+
 # {
-#     "email": "newuser@gmail.com",
+#     "email": "josephT@gmail.com",
 #     "password": "test123455"
 # }
 
@@ -21,36 +21,43 @@
 # Content-Type: application/json
 
 # {
-#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjAyNjIsImV4cCI6MTc0NTcxNzg2MiwiYXVkIjoiNjYyYzAxYmQzMTY1MDE5NzkzYzZjMTgwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.Z3y5LsGgpFIZQd25YV9P0_Bp1kTMzf6WEN35SIJK3Es"
+#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIyOTAsImV4cCI6MTc0NTcxOTg5MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.JUAlWSHZ-NIw0QSzcqAjgO5mgdhS-kXk8dYqZxnpW7I"
+# }
+
+# DELETE http://localhost:3000/api/auth/logout
+# Content-Type: application/json
+
+# {
+#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzMTYsImV4cCI6MTc0NTcxOTkxNiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0Oz8NVvq9Uzn9DpzoES-RPargGi4BBaGapnJTDA-hGU"
 # }
 
 # GET http://localhost:3000/api/buzzes
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
 
 # GET http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
 
 # POST http://localhost:3000/api/buzzes
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
 
 # {
-#     "name": "New buzz",
+#     "name": "Its a ticket!",
 #     "poster": {"email": "maria@gmail.com", "name": "maria", "password": "maria123455"},
 #     "url": "www.google.com",
 #     "private": false
 # }
 
-# PUT http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
+# PUT http://localhost:3000/api/buzzes/662c0cf2d137b3764202e3a8
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
 
 # {
-#     "name": "the new node.js is here"
+#     "name": "It's not a ticket"
 # }
 
-# DELETE http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
+# DELETE http://localhost:3000/api/buzzes/662c0cf2d137b3764202e3a8
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNTgzMTksImV4cCI6MTcxNDE2MTkxOSwiYXVkIjoiNjYyYmVlMzA5MzU1NzYzZTlkNzBkYThhIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0meCSkcJ6jU7J5FLTZZ93gHGRztzvCcMYAI2QJvTuwU
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
