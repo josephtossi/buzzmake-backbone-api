@@ -3,9 +3,9 @@
 # Content-Type: application/json
  
 # {
-#     "email": "josephT@gmail.com",
+#     "email": "carlos@gmail.com",
 #     "password": "test123455",
-#     "name": "josephT"
+#     "name": "carlos"
 # }
 
 
@@ -13,7 +13,7 @@
 # Content-Type: application/json
 
 # {
-#     "email": "josephT@gmail.com",
+#     "email": "carlos@gmail.com",
 #     "password": "test123455"
 # }
 
@@ -33,7 +33,7 @@
 
 # GET http://localhost:3000/api/buzzes
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjg3OTksImV4cCI6MTcxNDIzMjM5OSwiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.eKQTjDpsJY1mzRkF1eMQZY9hSz91zeEfB_0TooEhyMw
 
 # GET http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
 # Content-Type: application/json
@@ -41,11 +41,11 @@
 
 # POST http://localhost:3000/api/buzzes
 # Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjg3OTksImV4cCI6MTcxNDIzMjM5OSwiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.eKQTjDpsJY1mzRkF1eMQZY9hSz91zeEfB_0TooEhyMw
 
 # {
-#     "name": "Its a ticket!",
-#     "poster": {"email": "maria@gmail.com", "name": "maria", "password": "maria123455"},
+#     "name": "carlos",
+#     "userId": "614e558b3903c60186db0eaa",
 #     "url": "www.google.com",
 #     "private": false
 # }

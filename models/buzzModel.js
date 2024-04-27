@@ -8,10 +8,10 @@ const buzzSchema = mongoose.Schema(
             required: [true, "Name field is required"],
             default: ""
         },
-        poster: {
-            type: Map,
-            required: [true, "Every buzz should have a poster"],
-            default: {}
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
         },
         url: {
             type: String,

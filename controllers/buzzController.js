@@ -1,4 +1,6 @@
 const buzzModel = require('../models/buzzModel.js');
+const userModel = require('../models/userModel.js');
+
 
 module.exports = {
     getbuzzes: async (req, res, next) => {
@@ -21,8 +23,14 @@ module.exports = {
     },
     postBuzz: async (req, res, next) => {
         try {
-            const response = await buzzModel.create(req.body);
-            res.status(200).send(response);
+            const { userId } = req.body;
+
+            const buzzData = { ...req.body, user: userId };
+            const response = await buzzModel.create(buzzData);
+
+            const user = await userModel.findById(userId);
+
+            res.status(200).send({ post: response, user: user });
         } catch (error) {
             next(error);
         }
