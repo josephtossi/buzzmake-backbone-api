@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
 const createError = require('http-errors');
 
+// const helpers  
+const redisClient = require('./init_redis.js');
+
 module.exports = {
     singAccessToken: (userId) => {
         return new Promise((resolve, reject) => {
@@ -14,8 +17,7 @@ module.exports = {
             jwt.sign(payload, secret, options, (err, token) => {
                 if (err) return reject(err);
                 resolve(token);
-            })
-
+            });
         })
     },
     verifyAccessToken: (req, res, next) => {
@@ -40,17 +42,24 @@ module.exports = {
             };
             jwt.sign(payload, secret, options, (err, token) => {
                 if (err) return reject(err);
+                // set token to redis on each login
+                redisClient.redisSetKey(userId, token, 365 * 24 * 60 * 60);
                 resolve(token);
-            })
-
+            });
         })
     },
     verifyRefreshToken: (refreshToken) => {
         return new Promise((resolve, reject) => {
-            jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, payload) => {
+            jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, payload) => {
                 if (err) return reject(createError.Unauthorized());
                 const userId = payload.aud;
-                resolve(userId);
+                const token = await redisClient.redisGetKey(userId);
+                // check if the refresh token is saved in redis
+                if (token === refreshToken) {
+                    resolve(userId);
+                } else {
+                    reject(createError.Unauthorized());
+                }
             });
         })
     },

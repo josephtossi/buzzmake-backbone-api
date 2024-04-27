@@ -8,8 +8,10 @@ const mongoose = require('mongoose');
 // route constants
 const buzzRoute = require('./routes/buzzRoute.js');
 const authRoute = require('./routes/authRoute.js');
+
 // helpers constants
 const mongooseHelper = require('./helpers/mongoosedb_helper.js');
+const redisClient = require('./helpers/init_redis.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,6 +42,7 @@ mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.DB_NAME })
     .then(() => {
         console.log('Connected to Mongo Database');
         mongooseHelper.closeDatabaseConnectionOnAbort();
+        redisClient.connectToRedis();
         app.listen(PORT, () => console.log(`Node API is running on port ${PORT}`));
     })
     .catch((error) => {

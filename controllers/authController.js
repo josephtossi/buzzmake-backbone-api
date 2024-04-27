@@ -3,6 +3,7 @@ const User = require('../models/userModel');
 // helpers constant
 const { authSignInShema, authSignUpShema } = require('../helpers/validation_helper.js');
 const jwtHelper = require('../helpers/jwt_helper.js');
+const redisClient = require('../helpers/init_redis.js');
 
 const addRefreshTokenString = 'Please add the refresh token';
 
@@ -75,7 +76,11 @@ module.exports = {
             const { refreshToken } = req.body;
             if (!refreshToken) throw createError.BadRequest(addRefreshTokenString);
             const userId = await jwtHelper.verifyRefreshToken(refreshToken);
-            res.status(200).send({
+
+            // remove key from redis
+            redisClient.redisDeleteKey(userId);
+
+            res.status(204).send({
                 message: "Logged out"
             });
         } catch (error) {

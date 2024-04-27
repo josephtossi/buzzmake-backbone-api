@@ -21,14 +21,14 @@
 # Content-Type: application/json
 
 # {
-#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIyOTAsImV4cCI6MTc0NTcxOTg5MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.JUAlWSHZ-NIw0QSzcqAjgO5mgdhS-kXk8dYqZxnpW7I"
+#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjc0ODIsImV4cCI6MTc0NTc4NTA4MiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.L0WX8CWkTjOssO4ewiZHnXxJX10aFfRT3k-IHOMkm08"
 # }
 
 # DELETE http://localhost:3000/api/auth/logout
 # Content-Type: application/json
 
 # {
-#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzMTYsImV4cCI6MTc0NTcxOTkxNiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.0Oz8NVvq9Uzn9DpzoES-RPargGi4BBaGapnJTDA-hGU"
+#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjgwNDIsImV4cCI6MTc0NTc4NTY0MiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.dBT2QUW0bgnjsQh9wQcUh7b3On2mRpwD6PsaFME2Wx0"
 # }
 
 # GET http://localhost:3000/api/buzzes
