@@ -4,6 +4,7 @@ const User = require('../models/userModel');
 const { authSignInShema, authSignUpShema } = require('../helpers/validation_helper.js');
 const jwtHelper = require('../helpers/jwt_helper.js');
 const redisClient = require('../helpers/init_redis.js');
+const emailHelper = require('../helpers/email_sender.js');
 // constant strings
 const addRefreshTokenString = 'Please add the refresh token';
 
@@ -19,6 +20,14 @@ module.exports = {
             const savedUser = await user.save();
             const accessToken = await jwtHelper.singAccessToken(savedUser.id);
             const refreshToken = await jwtHelper.signRefreshToken(savedUser.id);
+
+            // todo: send email on register
+            // const options = {
+            //     to: 'recipient@example.com',
+            //     subject: 'Welcome to buzz',
+            // };
+            // const sendEmailResp = await emailHelper.sendEmail(options);
+
             res.status(200).send({
                 message: `user ${result.email} created`,
                 id: savedUser.id,
