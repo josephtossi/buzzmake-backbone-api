@@ -1,13 +1,16 @@
 const buzzModel = require('../models/buzzModel.js');
 const userModel = require('../models/userModel.js');
 
-
 module.exports = {
-    getbuzzes: async (req, res, next) => {
+    getBuzzes: async (req, res, next) => {
         try {
-            console.log(req.headers['authorization'])
-            const buzzes = await buzzModel.find({});
-            res.status(200).json(buzzes);
+            let buzzes = await buzzModel.find({});
+            for (let buzz of buzzes) {
+                buzz.user = await userModel
+                .findById(buzz.user)
+                .select('-password -buzzes')
+            }
+            res.status(200).json({buzzes: buzzes, count: buzzes.length});
         } catch (error) {
             next(error);
         }
@@ -23,14 +26,12 @@ module.exports = {
     },
     postBuzz: async (req, res, next) => {
         try {
-            const { userId } = req.body;
-
-            const buzzData = { ...req.body, user: userId };
+            const buzzData = { ...req.body, user: req.userId };
             const response = await buzzModel.create(buzzData);
-
-            const user = await userModel.findById(userId);
-
-            res.status(200).send({ post: response, user: user });
+            const user = await userModel.findById(req.userId);
+            user.buzzes.push(response._id); 
+            await user.save();
+            res.status(200).send({ post: response, userId: user._id });
         } catch (error) {
             next(error);
         }

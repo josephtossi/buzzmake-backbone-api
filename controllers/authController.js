@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 const { authSignInShema, authSignUpShema } = require('../helpers/validation_helper.js');
 const jwtHelper = require('../helpers/jwt_helper.js');
 const redisClient = require('../helpers/init_redis.js');
-
+// constant strings
 const addRefreshTokenString = 'Please add the refresh token';
 
 module.exports = {

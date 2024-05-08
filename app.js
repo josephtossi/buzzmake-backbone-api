@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 // route constants
 const buzzRoute = require('./routes/buzzRoute.js');
 const authRoute = require('./routes/authRoute.js');
+const usersRoute = require('./routes/usersRoute.js');
 
 // helpers constants
 const mongooseHelper = require('./helpers/mongoosedb_helper.js');
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use('/api/buzzes', buzzRoute);
 app.use('/api/auth', authRoute);
+app.use('/api/users',usersRoute);
 
 // api general error handle
 app.use(async (req, res, next) => next(createError.NotFound("api does not exist")));

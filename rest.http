@@ -1,63 +1,75 @@
-
-# POST http://localhost:3000/api/auth/register
-# Content-Type: application/json
+### register to buzzmake
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
  
-# {
-#     "email": "carlos@gmail.com",
-#     "password": "test123455",
-#     "name": "carlos"
-# }
+{
+    "email": "jo@gmail.com",
+    "password": "test123455",
+    "name": "jo"
+}
+### login to account
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
 
+{
+    "email": "jo@gmail.com",
+    "password": "test123455"
+}
+### refresh a token
+POST http://localhost:3000/api/auth/refresh-token
+Content-Type: application/json
 
-# POST http://localhost:3000/api/auth/login
-# Content-Type: application/json
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjc0ODIsImV4cCI6MTc0NTc4NTA4MiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.L0WX8CWkTjOssO4ewiZHnXxJX10aFfRT3k-IHOMkm08"
+}
+### logout of account and remove tokens
+DELETE http://localhost:3000/api/auth/logout
+Content-Type: application/json
 
-# {
-#     "email": "carlos@gmail.com",
-#     "password": "test123455"
-# }
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjgwNDIsImV4cCI6MTc0NTc4NTY0MiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.dBT2QUW0bgnjsQh9wQcUh7b3On2mRpwD6PsaFME2Wx0"
+}
 
-# POST http://localhost:3000/api/auth/refresh-token
-# Content-Type: application/json
+### get all users
+GET http://localhost:3000/api/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzUzMTgsImV4cCI6MTcxNTE3ODkxOCwiYXVkIjoiNjYzYjdmODQ4MjA1ZGE0ZjkxN2M4YWU4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.GDRb2GBSfraoLCiYAdsEp2dpP0r9iWrxM-XTo_bWD44
+### get a user data 
+GET http://localhost:3000/api/users/662d0e2aed64ba62bbe44db8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzUzMTgsImV4cCI6MTcxNTE3ODkxOCwiYXVkIjoiNjYzYjdmODQ4MjA1ZGE0ZjkxN2M4YWU4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.GDRb2GBSfraoLCiYAdsEp2dpP0r9iWrxM-XTo_bWD44
+### get buzzes for a certain user
+GET http://localhost:3000/api/users/buzzes/662d0e2aed64ba62bbe44db8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzUzMTgsImV4cCI6MTcxNTE3ODkxOCwiYXVkIjoiNjYzYjdmODQ4MjA1ZGE0ZjkxN2M4YWU4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.GDRb2GBSfraoLCiYAdsEp2dpP0r9iWrxM-XTo_bWD44
 
-# {
-#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjc0ODIsImV4cCI6MTc0NTc4NTA4MiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.L0WX8CWkTjOssO4ewiZHnXxJX10aFfRT3k-IHOMkm08"
-# }
+### get all buzzes
+GET http://localhost:3000/api/buzzes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzE2OTIsImV4cCI6MTcxNTE3NTI5MiwiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.AEV-MPHq8prD4LsY6K-Qm2QqrKpvmpyi3gfcAi3jNdw
+### get a certain buzz 
+GET http://localhost:3000/api/buzzes/663b6182b3a92d2ee2d1ec05
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzE2OTIsImV4cCI6MTcxNTE3NTI5MiwiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.AEV-MPHq8prD4LsY6K-Qm2QqrKpvmpyi3gfcAi3jNdw
+### add new buzz
+POST http://localhost:3000/api/buzzes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzA5MzMsImV4cCI6MTcxNTE3NDUzMywiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.zYpeVwdWWIIBaJ-6OpBXdTJTuUF1vigwq05Sp_8hqEA
 
-# DELETE http://localhost:3000/api/auth/logout
-# Content-Type: application/json
+{
+    "name": "carlos buzz 2",
+    "url": "www.google.com",
+    "private": false
+}
+### edit a buzz
+PUT http://localhost:3000/api/buzzes/662c0cf2d137b3764202e3a8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
 
-# {
-#     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjgwNDIsImV4cCI6MTc0NTc4NTY0MiwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.dBT2QUW0bgnjsQh9wQcUh7b3On2mRpwD6PsaFME2Wx0"
-# }
-
-# GET http://localhost:3000/api/buzzes
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjg3OTksImV4cCI6MTcxNDIzMjM5OSwiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.eKQTjDpsJY1mzRkF1eMQZY9hSz91zeEfB_0TooEhyMw
-
-# GET http://localhost:3000/api/buzzes/662bfebcfae6f9598af0114a
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
-
-# POST http://localhost:3000/api/buzzes
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQyMjg3OTksImV4cCI6MTcxNDIzMjM5OSwiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.eKQTjDpsJY1mzRkF1eMQZY9hSz91zeEfB_0TooEhyMw
-
-# {
-#     "name": "carlos",
-#     "userId": "614e558b3903c60186db0eaa",
-#     "url": "www.google.com",
-#     "private": false
-# }
-
-# PUT http://localhost:3000/api/buzzes/662c0cf2d137b3764202e3a8
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
-
-# {
-#     "name": "It's not a ticket"
-# }
-
-# DELETE http://localhost:3000/api/buzzes/662c0cf2d137b3764202e3a8
-# Content-Type: application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
+{
+    "name": "It's not a ticket"
+}
+### delete buzz
+DELETE http://localhost:3000/api/buzzes/662c0cf2d137b3764202e3a8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik

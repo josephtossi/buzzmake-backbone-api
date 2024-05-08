@@ -28,6 +28,7 @@ module.exports = {
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
             if (err) return next(createError.Unauthorized())
             req.payload = payload;
+            req.userId = payload.aud;
             next();
         });
     },
