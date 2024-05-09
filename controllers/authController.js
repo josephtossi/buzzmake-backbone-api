@@ -21,19 +21,22 @@ module.exports = {
             const accessToken = await jwtHelper.singAccessToken(savedUser.id);
             const refreshToken = await jwtHelper.signRefreshToken(savedUser.id);
 
-            // todo: send email on register
+            // todo: integrate email sender
             // const options = {
-            //     to: 'recipient@example.com',
-            //     subject: 'Welcome to buzz',
+            //     to: result.email,
+            //     subject: 'Welcome to buzzmake',
             // };
-            // const sendEmailResp = await emailHelper.sendEmail(options);
+            // await emailHelper.sendEmail(options).then(res => {
+            //     console.log(`get res: ${res}`)
+            // });
 
-            res.status(200).send({
-                message: `user ${result.email} created`,
-                id: savedUser.id,
-                accessToken: accessToken,
-                refreshToken: refreshToken
-            });
+            res.status(200)
+                .send({
+                    message: `user ${result.email} created`,
+                    id: savedUser.id,
+                    accessToken: accessToken,
+                    refreshToken: refreshToken
+                });
         } catch (error) {
             if (error.isJoi === true) error.status = 400
             next(error);

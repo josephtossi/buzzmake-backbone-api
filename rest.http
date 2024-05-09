@@ -3,9 +3,9 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
  
 {
-    "email": "test3@gmail.com",
+    "email": "jo@gmail.com",
     "password": "test123455",
-    "name": "test3"
+    "name": "jo"
 }
 ### login to account
 POST http://localhost:3000/api/auth/login
@@ -54,7 +54,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzE2O
 ### add new buzz
 POST http://localhost:3000/api/buzzes
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzA5MzMsImV4cCI6MTcxNTE3NDUzMywiYXVkIjoiNjYyZDBlMmFlZDY0YmE2MmJiZTQ0ZGI4IiwiaXNzIjoiam9zZXBoLmNvbSJ9.zYpeVwdWWIIBaJ-6OpBXdTJTuUF1vigwq05Sp_8hqEA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUyNzY2MDcsImV4cCI6MTcxNTI4MDIwNywiYXVkIjoiNjYzZDBiM2ZiYjY1ZGEwYWYxMDk0OTcyIiwiaXNzIjoiam9zZXBoLmNvbSJ9.9irTWxY_hv8jFgs-aHjuTCS4So6xMg6vrUBhDm-Daw8
 
 {
     "name": "carlos buzz 2",

@@ -16,7 +16,7 @@ const buzzSchema = mongoose.Schema(
         url: {
             type: String,
             required: [true, "url is mandatory"],
-            default: "https://google.com"
+            default: ""
         },
         private: {
             type: Boolean,

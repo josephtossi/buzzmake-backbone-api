@@ -2,17 +2,15 @@ const nodemailer = require('nodemailer');
 const fs = require('fs');
 const { promisify } = require('util');
 
-// Promisify the fs.readFile function
 const readFileAsync = promisify(fs.readFile);
 
-// todo: select a transporter
 const transporter = nodemailer.createTransport({
     host: 'smtp.zoho.eu',
     port: 465,
     secure: true,
     auth: {
-        user:process.env.EMAIL,
-        pass:process.env.EMAIL_PASSWORD
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD
     }
 });
 

@@ -7,10 +7,10 @@ module.exports = {
             let buzzes = await buzzModel.find({});
             for (let buzz of buzzes) {
                 buzz.user = await userModel
-                .findById(buzz.user)
-                .select('-password -buzzes')
+                    .findById(buzz.user)
+                    .select('-password -buzzes')
             }
-            res.status(200).json({buzzes: buzzes, count: buzzes.length});
+            res.status(200).json({ buzzes: buzzes, count: buzzes.length });
         } catch (error) {
             next(error);
         }
@@ -27,9 +27,13 @@ module.exports = {
     postBuzz: async (req, res, next) => {
         try {
             const buzzData = { ...req.body, user: req.userId };
+            if (req.file) {
+                const baseUrl = `${req.protocol}://${req.get('host')}`;
+                buzzData.url = `${baseUrl}/api/buzzes/uploads/${req.file.filename}`;
+            }
             const response = await buzzModel.create(buzzData);
             const user = await userModel.findById(req.userId);
-            user.buzzes.push(response._id); 
+            user.buzzes.push(response._id);
             await user.save();
             res.status(200).send({ post: response, userId: user._id });
         } catch (error) {
@@ -63,4 +67,12 @@ module.exports = {
             next(error);
         }
     },
+    getFile: async (req, res, next) => {
+        try {
+            const filename = req.params.filename;
+            res.sendFile(filename, { root: 'uploads' });
+        } catch (error) {
+            next(error);
+        }
+    }
 };
