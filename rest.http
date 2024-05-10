@@ -47,14 +47,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUxNzUzM
 GET http://localhost:3000/api/buzzes
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
-### get a certain buzz 
-GET http://localhost:3000/api/buzzes/663b6182b3a92d2ee2d1ec05
+### get buzzes of type ( buzz type ex: Educational, It, etc ... )
+GET http://localhost:3000/api/buzzes/buzz-type/663e4af4a90e57066dd34310
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNTYwOTQsImV4cCI6MTcxNTM1OTY5NCwiYXVkIjoiNjYzZTQxM2YzMWNhM2Q5NDE4MGIwZWU5IiwiaXNzIjoiam9zZXBoLmNvbSJ9.KufBicSIvggDQ8IC_f4fd_rwO11QOJicpfCDOcwO7K4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
+### get a certain buzz 
+GET http://localhost:3000/api/buzzes/663e523c5fd2e621caaf269f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
 ### add new buzz
 POST http://localhost:3000/api/buzzes
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNTYwOTQsImV4cCI6MTcxNTM1OTY5NCwiYXVkIjoiNjYzZTQxM2YzMWNhM2Q5NDE4MGIwZWU5IiwiaXNzIjoiam9zZXBoLmNvbSJ9.KufBicSIvggDQ8IC_f4fd_rwO11QOJicpfCDOcwO7K4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
 
 {
     "name": "buzz",
@@ -77,18 +81,18 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzNTAsImV4cCI6MTcxNDE2NTk1MCwiYXVkIjoiNjYyYzBhNWQ5Yzg2NTQyMzVmNzEyNTAwIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7zjIQjUfmWAKzuQrt6Iz6DB_XuKRCDKpKmdaPFT3cik
 
 ### get buzz types
-GET http://localhost:3000/api/buzzes/get-types
+GET http://localhost:3000/api/buzz-types
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNTYwOTQsImV4cCI6MTcxNTM1OTY5NCwiYXVkIjoiNjYzZTQxM2YzMWNhM2Q5NDE4MGIwZWU5IiwiaXNzIjoiam9zZXBoLmNvbSJ9.KufBicSIvggDQ8IC_f4fd_rwO11QOJicpfCDOcwO7K4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
 ### create buzz type
-POST http://localhost:3000/api/buzzes/create-type
+POST http://localhost:3000/api/buzz-types
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNTYwOTQsImV4cCI6MTcxNTM1OTY5NCwiYXVkIjoiNjYzZTQxM2YzMWNhM2Q5NDE4MGIwZWU5IiwiaXNzIjoiam9zZXBoLmNvbSJ9.KufBicSIvggDQ8IC_f4fd_rwO11QOJicpfCDOcwO7K4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
 
 {
-    "name": "Engineering"
+    "name": "Social Media"
 }
 ### delete buzz type
-DELETE http://localhost:3000/api/buzzes/buzz-type/663e4ad8a90e57066dd34308
+DELETE http://localhost:3000/api/buzz-types/663e4ad8a90e57066dd34308
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNTYwOTQsImV4cCI6MTcxNTM1OTY5NCwiYXVkIjoiNjYzZTQxM2YzMWNhM2Q5NDE4MGIwZWU5IiwiaXNzIjoiam9zZXBoLmNvbSJ9.KufBicSIvggDQ8IC_f4fd_rwO11QOJicpfCDOcwO7K4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
