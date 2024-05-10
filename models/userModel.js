@@ -19,6 +19,10 @@ const userSchema = mongoose.Schema(
             required: [true, "Name field is required"],
             default: ""
         },
+        phone: {
+            type: String,
+            required: false,
+        },
         buzzes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Buzz' }]
     },
     { timestamps: true }

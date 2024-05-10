@@ -3,9 +3,9 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
  
 {
-    "email": "josepht@gmail.com",
+    "email": "hannwa@gmail.com",
     "password": "test123455",
-    "name": "joseph tossy"
+    "name": "hanwna tossy"
 }
 ### login to account
 POST http://localhost:3000/api/auth/login
@@ -96,3 +96,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyM
 DELETE http://localhost:3000/api/buzz-types/663e4ad8a90e57066dd34308
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
+### create offer to a certain buzz
+POST http://localhost:3000/api/offer
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjUyMzEsImV4cCI6MTcxNTQwODQzMSwiYXVkIjoiNjYzZTY1NmUxZGNhM2U2OTYwOWFhZjhkIiwiaXNzIjoiam9zZXBoLmNvbSJ9.XfgYTyWaTI0bF_uSUaawuKs7S6-sPu1LK83crctgUI4
+
+{
+    "buzzId": "663e62bed1f1eecd9f33d2ac",
+    "price": 10
+}

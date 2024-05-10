@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 // route constants
 const buzzRoute = require('./routes/buzzRoute.js');
 const buzzTypesRoute = require('./routes/buzzTypesRoute.js');
+const offerRoute = require('./routes/offerRoute.js');
 const authRoute = require('./routes/authRoute.js');
 const usersRoute = require('./routes/usersRoute.js');
 
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use('/api/buzzes', buzzRoute);
 app.use('/api/buzz-types', buzzTypesRoute);
+app.use('/api/offer', offerRoute)
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
 

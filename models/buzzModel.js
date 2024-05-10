@@ -22,6 +22,7 @@ const buzzSchema = mongoose.Schema(
             ref: 'BuzzType',
             required: true
         },
+        offers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Offer' }],
         url: {
             type: String,
             required: [true, "url is mandatory"],
