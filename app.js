@@ -1,3 +1,4 @@
+const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 
 const express = require('express');
@@ -16,6 +17,8 @@ const usersRoute = require('./routes/usersRoute.js');
 const mongooseHelper = require('./helpers/mongoosedb_helper.js');
 const redisClient = require('./helpers/init_redis.js');
 
+const specs = require('./swagger/swagger.js');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -30,6 +33,9 @@ app.use('/api/buzz-types', buzzTypesRoute);
 app.use('/api/offer', offerRoute)
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
+    explorer: true,
+}));
 
 // api general error handle
 app.use(async (req, res, next) => next(createError.NotFound("api does not exist")));
