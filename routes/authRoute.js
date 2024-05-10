@@ -15,20 +15,19 @@ const authController = require('../controllers/authController.js');
  *   post:
  *     summary: Register a new user
  *     tags: [Authentication]
- *     parameters:
- *       - in: body
- *         name: user
- *         description: User object
- *         required: true
- *         schema:
- *           type: object
- *           properties:
- *             email:
- *               type: string
- *             password:
- *               type: string
- *             name:
- *               type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               name:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Successfully registered
@@ -43,18 +42,17 @@ router.post('/register', authController.register);
  *   post:
  *     summary: Log in
  *     tags: [Authentication]
- *     parameters:
- *       - in: body
- *         name: credentials
- *         description: User credentials
- *         required: true
- *         schema:
- *           type: object
- *           properties:
- *             email:
- *               type: string
- *             password:
- *               type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Successfully logged in
@@ -69,16 +67,15 @@ router.post('/login', authController.login);
  *   post:
  *     summary: Refresh access token
  *     tags: [Authentication]
- *     parameters:
- *       - in: body
- *         name: refreshToken
- *         description: Refresh token
- *         required: true
- *         schema:
- *           type: object
- *           properties:
- *             refreshToken:
- *               type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               refreshToken:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Successfully refreshed access token
@@ -93,16 +90,15 @@ router.post('/refresh-token', authController.refreshToken);
  *   delete:
  *     summary: Log out
  *     tags: [Authentication]
-  *     parameters:
- *       - in: body
- *         name: refreshToken
- *         description: Refresh token
- *         required: true
- *         schema:
- *           type: object
- *           properties:
- *             refreshToken:
- *               type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               refreshToken:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Successfully logged out
