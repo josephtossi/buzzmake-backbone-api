@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// model schema using mongoose
 const buzzSchema = mongoose.Schema(
     {
         name: {
@@ -8,9 +7,19 @@ const buzzSchema = mongoose.Schema(
             required: [true, "Name field is required"],
             default: ""
         },
+        description: {
+            type: String,
+            required: [true, "Description is required", 100],
+            default: ""
+        },
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
+            required: true
+        },
+        buzzType: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'BuzzType',
             required: true
         },
         url: {
@@ -29,5 +38,4 @@ const buzzSchema = mongoose.Schema(
 
 const Buzz = mongoose.model('Buzz', buzzSchema);
 
-// exporting model for use 
 module.exports = Buzz;

@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const bCrypt = require('bcrypt');
 
-const Buzz = require('./buzzModel');
-
-// model schema using mongoose
 const userSchema = mongoose.Schema(
     {
         email:

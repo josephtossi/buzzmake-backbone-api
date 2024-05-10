@@ -18,7 +18,7 @@ module.exports = {
             // add user to db
             const user = new User(result);
             const savedUser = await user.save();
-            const accessToken = await jwtHelper.singAccessToken(savedUser.id);
+            const accessToken = await jwtHelper.signAccessToken(savedUser.id);
             const refreshToken = await jwtHelper.signRefreshToken(savedUser.id);
 
             // todo: integrate email sender
@@ -52,7 +52,7 @@ module.exports = {
             const passwordMatch = await userDoesExist.isValidPassword(result.password);
             if (!passwordMatch) throw createError.Unauthorized('Username/password is not valid');
 
-            const accessToken = await jwtHelper.singAccessToken(userDoesExist.id);
+            const accessToken = await jwtHelper.signAccessToken(userDoesExist.id);
             const refreshToken = await jwtHelper.signRefreshToken(userDoesExist.id);
             res.status(200).send({
                 message: `welcome ${result.email}`,
@@ -71,7 +71,7 @@ module.exports = {
             if (!refreshToken) throw createError.BadRequest(addRefreshTokenString);
             const userId = await jwtHelper.verifyRefreshToken(refreshToken);
 
-            const accessToken = await jwtHelper.singAccessToken(userId);
+            const accessToken = await jwtHelper.signAccessToken(userId);
             const newRefreshToken = await jwtHelper.signRefreshToken(userId);
 
             res.status(200).send({
