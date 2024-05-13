@@ -3,9 +3,9 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
  
 {
-    "email": "aaa@gmail.com",
+    "email": "josepht@gmail.com",
     "password": "test123455",
-    "name": "hanwna tossy"
+    "name": "Joseph tossy"
 }
 ### login to account
 POST http://localhost:3000/api/auth/login
@@ -58,14 +58,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyM
 ### add new buzz
 POST http://localhost:3000/api/buzzes
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU2MTg2MDksImV4cCI6MTcxNTY2MTgwOSwiYXVkIjoiNjY0MjM3YzBlYmEyZTFhNjY2MjkxMWViIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7CdRcLjeiiAkgi_y7zYrVoQIWvFN087J9hMMIZ1OrtU
 
 {
-    "name": "buzz",
+    "name": "clean the laundry",
     "url": "www.google.com",
     "private": false,
-    "description": "test",
-    "buzzType": "663e4af4a90e57066dd34310"
+    "description": "I want someone to clean the loundy evry day how much is a fair price ",
+    "buzzType": "664243dad7df3cd32ce89a67"
 }
 ### edit a buzz
 PUT http://localhost:3000/api/buzzes/662c0cf2d137b3764202e3a8
@@ -83,14 +83,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTQxNjIzN
 ### get buzz types
 GET http://localhost:3000/api/buzz-types
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU2MTg2MDksImV4cCI6MTcxNTY2MTgwOSwiYXVkIjoiNjY0MjM3YzBlYmEyZTFhNjY2MjkxMWViIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7CdRcLjeiiAkgi_y7zYrVoQIWvFN087J9hMMIZ1OrtU
 ### create buzz type
 POST http://localhost:3000/api/buzz-types
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyMDEsImV4cCI6MTcxNTQwMzQwMSwiYXVkIjoiNjYzZTUxMGQzMTM2NTUyNjk4MWZiMGIxIiwiaXNzIjoiam9zZXBoLmNvbSJ9.s-5SW8TLTs3blQRB2C50Lkpk734Lb17otZ-0MtR8GCQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU2MTg2MDksImV4cCI6MTcxNTY2MTgwOSwiYXVkIjoiNjY0MjM3YzBlYmEyZTFhNjY2MjkxMWViIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7CdRcLjeiiAkgi_y7zYrVoQIWvFN087J9hMMIZ1OrtU
 
 {
-    "name": "Social Media"
+    "name": "Miscellaneous"
 }
 ### delete buzz type
 DELETE http://localhost:3000/api/buzz-types/663e4ad8a90e57066dd34308
@@ -99,9 +99,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjAyM
 ### create offer to a certain buzz
 POST http://localhost:3000/api/offer
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzNjUyMzEsImV4cCI6MTcxNTQwODQzMSwiYXVkIjoiNjYzZTY1NmUxZGNhM2U2OTYwOWFhZjhkIiwiaXNzIjoiam9zZXBoLmNvbSJ9.XfgYTyWaTI0bF_uSUaawuKs7S6-sPu1LK83crctgUI4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU2MTg2MDksImV4cCI6MTcxNTY2MTgwOSwiYXVkIjoiNjY0MjM3YzBlYmEyZTFhNjY2MjkxMWViIiwiaXNzIjoiam9zZXBoLmNvbSJ9.7CdRcLjeiiAkgi_y7zYrVoQIWvFN087J9hMMIZ1OrtU
 
 {
-    "buzzId": "663e62bed1f1eecd9f33d2ac",
-    "price": 10
+    "buzzId": "66424414d7df3cd32ce89a6e",
+    "price": 5
 }
