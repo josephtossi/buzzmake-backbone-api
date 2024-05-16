@@ -1,26 +1,26 @@
 const tf = require('@tensorflow/tfjs');
-require('@tensorflow/tfjs-node');
 const fs = require('fs');
-const fsPromises = require('fs').promises;
-
 const csv = require('csv-parser');
-const path = require('path');
 
-function resolvePath(relativePath) {
-    return path.resolve(__dirname, relativePath);
-}
-
-async function loadData(filePath) {
+// implementing the 80% train - 20% test rule 
+async function loadData(filePath, splitRatio = 0.8) {
     const data = [];
+    // loading the data in promise either resolve or reject
     return new Promise((resolve, reject) => {
         fs.createReadStream(filePath)
             .pipe(csv())
             .on('data', (row) => {
+                // preprocessing data
                 const preprocessedRow = preprocessRow(row);
+                // adding the preprocessed data to list data
                 data.push(preprocessedRow);
             })
             .on('end', () => {
-                resolve(data);
+                // split the data to train and test data
+                const splitIndex = Math.floor(data.length * splitRatio);
+                const trainingData = data.slice(0, splitIndex);
+                const testingData = data.slice(splitIndex);
+                resolve({ trainingData, testingData });
             })
             .on('error', (error) => {
                 reject(error);
@@ -29,6 +29,7 @@ async function loadData(filePath) {
 }
 
 function preprocessRow(row) {
+    // changing types to numerical values 
     const experienceLevelMap = { 'SE': 0, 'MI': 1, 'EN': 2, 'EX': 3 };
     const employmentTypeMap = { 'FT': 0, 'CT': 1 };
     const companyLocationMap = { 'US': 0, 'CA': 1, 'DE': 2, 'GB': 3, 'IN': 4, 'HK': 5, 'NG': 6, 'ES': 7, 'PT': 8 };
@@ -56,13 +57,13 @@ function preprocessRow(row) {
 
     return [
         parseInt(row.work_year),
-        experienceLevelMap[row.experience_level],
-        employmentTypeMap[row.employment_type],
-        jobTitleMap[row.job_title],
-        parseFloat(row.salary),
+        experienceLevelMap[row.experience_level] || -1,
+        employmentTypeMap[row.employment_type] || -1,
+        jobTitleMap[row.job_title] || -1,
+        parseFloat(row.salary_in_usd),
         parseFloat(row.remote_ratio),
-        companyLocationMap[row.company_location],
-        companySizeMap[row.company_size]
+        companyLocationMap[row.company_location] || -1,
+        companySizeMap[row.company_size] || -1
     ];
 }
 
@@ -71,36 +72,57 @@ function createModel() {
     model.add(tf.layers.dense({ units: 64, activation: 'relu', inputShape: [7] }));
     model.add(tf.layers.dense({ units: 64, activation: 'relu' }));
     model.add(tf.layers.dense({ units: 1 }));
-
     model.compile({ optimizer: 'adam', loss: 'meanSquaredError' });
-
     return model;
 }
 
-async function trainModel() {
-    const data = await loadData('./training_data/ds_salaries.csv');
+async function evaluateModel(model, testData) {
+    const testXs = tf.tensor2d(testData.map(row => row.slice(0, -1)));
+    const testYs = tf.tensor2d(testData.map(row => [row[row.length - 1]]));
+
+    const evaluation = await model.evaluate(testXs, testYs);
+
+    console.log('Evaluation results:');
+    for (let idx = 0; idx < evaluation.length; idx++) {
+        console.log(`Metric ${idx}: ${evaluation[idx]}`);
+    }
+
+    const predictions = model.predict(testXs);
+
+    // tensors to arrays
+    const trueValues = await testYs.array();
+    const predValues = await predictions.array();
+
+    console.log('True Values\tPredicted Values');
+    for (let i = 0; i < trueValues.length; i++) {
+        console.log(`${trueValues[i][0]}\t\t${predValues[i][0]}`);
+    }
+}
+
+
+async function trainModel(trainingData) {
     const model = createModel();
     // features
-    const xs = tf.tensor2d(data.map(row => row.slice(0, -1)));
+    const xs = tf.tensor2d(trainingData.map(row => row.slice(0, -1)));
     // labels
-    const ys = tf.tensor2d(data.map(row => [row[row.length - 1]]));
-
+    const ys = tf.tensor2d(trainingData.map(row => [row[row.length - 1]]));
     await model.fit(xs, ys, {
         epochs: 10,
         shuffle: true,
         callbacks: {
-            // check epock and loss rate
             onEpochEnd: (epoch, logs) => console.log(`epoch ${epoch}: loss = ${logs.loss}`),
         }
     });
 
     console.log('training completed');
 
-    // save the model
-    const modelPath = './saved_models';
-    await fsPromises.mkdir(modelPath, { recursive: true });
-    await model.save(`file://${modelPath}`);
-    console.log('Model saved at:', modelPath);
+    return model;
 }
 
-trainModel().catch(console.error);
+async function testModel() {
+    const { trainingData, testingData } = await loadData('./training_data/ds_salaries.csv', 0.8);
+    const model = await trainModel(trainingData);
+    await evaluateModel(model, testingData);
+}
+
+testModel().catch(console.error);
